@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "184761544897",
+    "project_id": "calvac-90fd1",
+    "storage_bucket": "calvac-90fd1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184761544897:android:7a6a47ec093c548b802440",
+        "android_client_info": {
+          "package_name": "com.example.calvac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184761544897-5t0e1thn6hftv7r42u1npp68f3tnvdif.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iesb.calvac",
+            "certificate_hash": "bf76390cbca0103c76f3064290b2e21b9214c3e2"
+          }
+        },
+        {
+          "client_id": "184761544897-65i6p5v2vrpt0ue346qjri0t01vqurbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVqZtA-KCb-bNtD-t46OHEOvKF0ChZw48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184761544897-65i6p5v2vrpt0ue346qjri0t01vqurbv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
