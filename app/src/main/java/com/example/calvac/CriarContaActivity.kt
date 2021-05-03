@@ -52,14 +52,13 @@ class CriarContaActivity : AppCompatActivity() {
 
         //Abaixo faz as validações de cada campo se estão em branco ou se foram realmente digitadas.
         if (nomeUsuario == ""){
-            Toast.makeText(this@CriarContaActivity, "Digite um nome.", Toast.LENGTH_LONG).show()
             nome.setError("Digite um nome.")
             nome.requestFocus()
         }else if (loginUsuario == ""){
-            Toast.makeText(this@CriarContaActivity, "Digite um email para login.", Toast.LENGTH_LONG).show()
+            login.setError("Digite um email.")
             login.requestFocus()
         }else if(senhaUsuario == ""){
-            Toast.makeText(this@CriarContaActivity, "Digite uma senha.", Toast.LENGTH_LONG).show()
+            senha.setError("Digite uma senha.")
             senha.requestFocus()
         }else{
 
