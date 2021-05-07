@@ -12,7 +12,8 @@
         <activity android:name=".MenuPrincipalActivity" >
         </activity>
         <activity android:name=".CriarContaActivity" />
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
