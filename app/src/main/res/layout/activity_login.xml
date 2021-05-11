@@ -62,26 +62,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <EditText
-        android:id="@+id/editText_login"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="12dp"
-        android:background="#208cef"
-        android:ems="10"
-        android:hint="exemplo@gmail.com"
-        android:maxLines="1"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:text="Senha"
         android:textColor="#000000"
         android:textSize="20dp"
@@ -95,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
-        android:background="#208cef"
+        android:background="@color/cor_fundo_texto"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="***********"
@@ -111,11 +96,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-
         android:backgroundTint="#c4c4c4"
         android:text="Entrar"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="@+id/editText_senha"
+        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toStartOf="@+id/editText_senha"
         app:layout_constraintTop_toBottomOf="@+id/editText_senha" />
 
@@ -123,15 +108,27 @@
         android:id="@+id/button_cadastrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#c4c4c4"
         android:text="Cadastrar"
-
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_login" />
+
+    <EditText
+        android:id="@+id/editText_login"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/cor_fundo_texto"
+        android:ems="10"
+        android:hint="exemplo@gmail.com"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

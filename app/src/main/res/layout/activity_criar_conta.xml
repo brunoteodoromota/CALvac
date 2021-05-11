@@ -36,11 +36,11 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
-        android:background="#208cef"
+        android:background="@color/cor_fundo_texto"
         android:ems="10"
-        android:textColor="#000000"
-        android:inputType="textPersonName"
         android:hint="Digite seu nome"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,26 +61,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_nome" />
 
-    <EditText
-        android:id="@+id/editText_login"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:background="#208cef"
-        android:ems="10"
-        android:maxLines="1"
-        android:hint="exemplo@gmail.com"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:text="Senha"
         android:textColor="#000000"
         android:textSize="20dp"
@@ -94,11 +79,11 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
-        android:background="#208cef"
+        android:background="@color/cor_fundo_texto"
         android:ems="10"
+        android:hint="***********"
         android:inputType="textPassword"
         android:textColor="#000000"
-        android:hint="***********"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,6 +104,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_senha"
         app:layout_constraintVertical_bias="0.09" />
+
+    <EditText
+        android:id="@+id/editText_login"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/cor_fundo_texto"
+        android:ems="10"
+        android:hint="exemplo@gmail.com"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

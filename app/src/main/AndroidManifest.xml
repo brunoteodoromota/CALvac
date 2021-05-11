@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CALvac" >
-        <activity android:name=".MenuPrincipalActivity" >
+        <activity android:name=".MenuPrincipalActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
-        <activity android:name=".CriarContaActivity" />
+        <activity android:name=".CriarContaActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
