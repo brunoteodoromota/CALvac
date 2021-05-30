@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#21e6dc"
+    android:background="@color/cor_fundo"
     tools:context=".LoginActivity">
 
     <TextView
@@ -82,8 +82,8 @@
         android:layout_marginTop="8dp"
         android:background="@color/cor_fundo_texto"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="***********"
+        android:inputType="textPassword"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"
@@ -95,21 +95,20 @@
         android:id="@+id/button_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#c4c4c4"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/cor_botao"
         android:text="Entrar"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="@+id/editText_senha"
-        app:layout_constraintHorizontal_bias="0.557"
-        app:layout_constraintStart_toStartOf="@+id/editText_senha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_senha" />
 
     <Button
         android:id="@+id/button_cadastrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#c4c4c4"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/cor_botao"
         android:text="Cadastrar"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,6 +128,31 @@
         app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button_redefinir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/cor_botao"
+        android:text="Redefinir"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Esqueceu a sua senha ?"
+        android:textColor="@color/cor_fundo_texto"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_cadastrar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
