@@ -10,6 +10,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
     private lateinit var buttonCrianca: Button
     private lateinit var buttonAdolescente: Button
     private lateinit var buttonAdulto: Button
+    private lateinit var buttonIdoso: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +20,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
         buttonCrianca = findViewById(R.id.button_crianca)
         buttonAdolescente = findViewById(R.id.button_adolescente)
         buttonAdulto = findViewById(R.id.button_adulto)
+        buttonIdoso = findViewById(R.id.button_idoso)
 
         buttonSair.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -37,6 +39,11 @@ class MenuPrincipalActivity : AppCompatActivity() {
 
         buttonAdulto.setOnClickListener {
             val intent = Intent(this, Cal3AdultoActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonIdoso.setOnClickListener {
+            val intent = Intent(this, Cal4IdosoActivity::class.java)
             startActivity(intent)
         }
 
