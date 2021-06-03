@@ -12,7 +12,7 @@ class Cal1CriancaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cal1_crianca)
 
-        buttonVoltar = findViewById(R.id.button_voltar_crianca) as Button
+        buttonVoltar = findViewById(R.id.button_voltar_crianca)
 
         buttonVoltar.setOnClickListener{
             val intent = Intent(this, MenuPrincipalActivity::class.java)

@@ -15,10 +15,10 @@ class MenuPrincipalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_principal)
 
-        buttonSair = findViewById(R.id.button_sair) as Button
-        buttonCrianca = findViewById(R.id.button_crianca) as Button
-        buttonAdolescente = findViewById(R.id.button_adolescente) as Button
-        buttonAdulto = findViewById(R.id.button_adulto) as Button
+        buttonSair = findViewById(R.id.button_sair)
+        buttonCrianca = findViewById(R.id.button_crianca)
+        buttonAdolescente = findViewById(R.id.button_adolescente)
+        buttonAdulto = findViewById(R.id.button_adulto)
 
         buttonSair.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)

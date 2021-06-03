@@ -20,13 +20,13 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        login = findViewById(R.id.editText_login) as EditText
-        senha = findViewById(R.id.editText_senha) as EditText
+        login = findViewById(R.id.editText_login)
+        senha = findViewById(R.id.editText_senha)
 
 
-        var button_login = findViewById(R.id.button_login) as Button
-        var button_cadastrar = findViewById(R.id.button_cadastrar) as Button
-        var buttonLoginRedefinir = findViewById(R.id.button_redefinir) as Button
+        var button_login = findViewById<Button>(R.id.button_login)
+        var button_cadastrar = findViewById<Button>(R.id.button_cadastrar)
+        var buttonLoginRedefinir = findViewById<Button>(R.id.button_redefinir)
 
 
 
