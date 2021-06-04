@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/cor_botao"
-        android:text="Eviar"
+        android:text="Enviar"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/editText_recuperar_email"
         app:layout_constraintStart_toStartOf="@+id/editText_recuperar_email"
