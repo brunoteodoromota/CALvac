@@ -7,6 +7,7 @@
     android:background="@color/cor_fundo"
     tools:context=".LoginActivity">
 
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="74dp"
@@ -62,11 +63,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+    <EditText
+        android:id="@+id/editText_login"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/cor_fundo_texto"
+        android:ems="10"
+        android:hint="exemplo@gmail.com"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Senha"
         android:textColor="#000000"
         android:textSize="20dp"
@@ -115,37 +130,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_login" />
 
-    <EditText
-        android:id="@+id/editText_login"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/cor_fundo_texto"
-        android:ems="10"
-        android:hint="exemplo@gmail.com"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/button_redefinir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/cor_botao"
-        android:text="Redefinir"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:text="Esqueceu a sua senha ?"
         android:textColor="@color/cor_fundo_texto"
         android:textSize="16sp"
@@ -154,5 +144,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_cadastrar" />
 
+
+    <Button
+        android:id="@+id/button_redefinir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/cor_botao"
+        android:text="Redefinir"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,19 +25,17 @@ class CriarContaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_criar_conta)
 
-        nome = findViewById(R.id.editText_nome) as EditText
-        login = findViewById(R.id.editText_login) as EditText
-        senha = findViewById(R.id.editText_senha) as EditText
+        nome = findViewById(R.id.editText_nome)
+        login = findViewById(R.id.editText_login)
+        senha = findViewById(R.id.editText_senha)
 
 
-        var button_cadastrar = findViewById(R.id.button_cadastrar) as Button;
+        var button_cadastrar = findViewById<Button>(R.id.button_cadastrar);
 
         mAuth = FirebaseAuth.getInstance();
 
 
         button_cadastrar.setOnClickListener {
-            //val intent = Intent(this, MenuPrincipalActivity::class.java).apply{}
-            // startActivity(intent)
             cadastrarUsuario()
 
         }
