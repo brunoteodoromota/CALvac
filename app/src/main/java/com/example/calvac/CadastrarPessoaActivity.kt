@@ -1,22 +1,32 @@
 package com.example.calvac
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.ContentResolver
+import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.CalendarContract
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Switch
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.vicmikhailau.maskededittext.MaskedEditText
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 import java.util.*
 
 class CadastrarPessoaActivity : AppCompatActivity() {
@@ -96,10 +106,18 @@ class CadastrarPessoaActivity : AppCompatActivity() {
     }
 
     fun checarPermissoes() {
-        if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.WRITE_CALENDAR)
-            == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.READ_CALENDAR)
-            == PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(this, "Escrita e Leitura de Calendário Permitidas", Toast.LENGTH_SHORT).show()
+        if (ContextCompat.checkSelfPermission(
+                applicationContext,
+                Manifest.permission.WRITE_CALENDAR
+            )
+            == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
+                applicationContext,
+                Manifest.permission.READ_CALENDAR
+            )
+            == PackageManager.PERMISSION_GRANTED
+        ) {
+            Toast.makeText(this, "Escrita e Leitura de Calendário Permitidas", Toast.LENGTH_SHORT)
+                .show()
         } else {
             solicitarPermissoesCalendario()
         }
@@ -112,8 +130,121 @@ class CadastrarPessoaActivity : AppCompatActivity() {
             LEITURA_E_ESCRITA_CALENDAR
         )
 
-        Toast.makeText(this, "Escrita e Leitura de Calendário Permitidas", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Escrita e Leitura de Calendário Permitidas", Toast.LENGTH_SHORT)
+            .show()
     }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun adicionarEvento(
+        context: Context,
+        dataVacina: LocalDate,
+        nomeVacina: String,
+        detalheVacina: String,
+        nome: String
+    ) {
+        try {
+            val cal = Calendar.getInstance()
+            cal.set(dataVacina.year, dataVacina.monthValue, dataVacina.dayOfMonth)
+
+            var dataVacinaHora: LocalDateTime = dataVacina.atTime(12, 0)
+            var dataInMillis: Long =
+                dataVacinaHora.atOffset(ZoneOffset.ofHours(0)).toInstant().toEpochMilli()
+
+            val titulo: String = "CALvac: " + nome + " - " + nomeVacina
+            val descricao: String = detalheVacina
+            val cr = context.contentResolver
+            val values = ContentValues()
+            values.put(CalendarContract.Events.DTSTART, dataInMillis)
+            values.put(CalendarContract.Events.DTEND, dataInMillis)
+            values.put(CalendarContract.Events.TITLE, titulo)
+            values.put(CalendarContract.Events.DESCRIPTION, descricao)
+            values.put(CalendarContract.Events.CALENDAR_ID, getCalendarId(context))
+            values.put(CalendarContract.Events.EVENT_TIMEZONE, Calendar.getInstance().timeZone.id)
+
+            val uri = cr.insert(CalendarContract.Events.CONTENT_URI, values)
+
+            val idEvento = uri!!.lastPathSegment!!.toLong()
+
+            setarLembrete(cr, idEvento, 0)
+            Toast.makeText(
+                baseContext,
+                "Lembrete da vacina: " + nomeVacina + " cadastrada com sucesso",
+                Toast.LENGTH_SHORT
+            ).show()
+
+
+        } catch (se: SecurityException) {
+            se.printStackTrace()
+            Toast.makeText(baseContext, "Erro: " + se.message, Toast.LENGTH_LONG).show()
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun getCalendarId(context: Context): Long? {
+        val projection = arrayOf(
+            CalendarContract.Calendars._ID,
+            CalendarContract.Calendars.CALENDAR_DISPLAY_NAME
+        )
+
+        var calCursor = context.contentResolver.query(
+            CalendarContract.Calendars.CONTENT_URI,
+            projection,
+            CalendarContract.Calendars.VISIBLE + " = 1 AND " + CalendarContract.Calendars.IS_PRIMARY + " = 1 ",
+            null,
+            CalendarContract.Calendars._ID + " ASC"
+        )
+
+        if (calCursor != null && calCursor.count <= 0) {
+            calCursor = context.contentResolver.query(
+                CalendarContract.Calendars.CONTENT_URI,
+                projection,
+                CalendarContract.Calendars.VISIBLE + " = 1 ",
+                null,
+                CalendarContract.Calendars._ID + " ASC"
+            )
+        }
+
+        if (calCursor != null) {
+            if (calCursor.moveToFirst()) {
+                val calNome: String
+                val calID: String
+                val nomeCol = calCursor.getColumnIndex(projection[1])
+                val idCol = calCursor.getColumnIndex(projection[0])
+
+                calNome = calCursor.getString(nomeCol)
+                calID = calCursor.getString(idCol)
+
+                println("Nome do calendário: " + calNome + "Id do Calendario: " + calID)
+
+                calCursor.close()
+                return calID.toLong()
+            }
+        }
+        return null
+    }
+
+    fun setarLembrete(cr: ContentResolver, idEvento: Long, timeBefore: Int) {
+        try {
+            val values = ContentValues()
+            values.put(CalendarContract.Reminders.MINUTES, timeBefore)
+            values.put(CalendarContract.Reminders.EVENT_ID, idEvento)
+            values.put(CalendarContract.Reminders.METHOD, CalendarContract.Reminders.METHOD_ALERT)
+            cr.insert(CalendarContract.Reminders.CONTENT_URI, values)
+            val c = CalendarContract.Reminders.query(
+                cr,
+                idEvento,
+                arrayOf(CalendarContract.Reminders.MINUTES)
+            )
+            if (c.moveToFirst()) {
+                println("calendar" + c.getInt(c.getColumnIndex(CalendarContract.Reminders.MINUTES)))
+            }
+            c.close()
+        } catch (se: SecurityException) {
+            se.printStackTrace()
+            Toast.makeText(baseContext, "Erro: " + se.message, Toast.LENGTH_LONG).show()
+        }
+    }
+
 
 }
 
