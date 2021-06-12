@@ -12,6 +12,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
     private lateinit var buttonAdulto: Button
     private lateinit var buttonIdoso: Button
     private lateinit var buttonGestante: Button
+    private lateinit var buttonCadastrarPessoa: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +24,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
         buttonAdulto = findViewById(R.id.button_adulto)
         buttonIdoso = findViewById(R.id.button_idoso)
         buttonGestante = findViewById(R.id.button_gestante)
+        buttonCadastrarPessoa = findViewById(R.id.button_cadastrar_pessoa)
 
         buttonSair.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -49,8 +51,13 @@ class MenuPrincipalActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        buttonGestante.setOnClickListener{
-            val intent = Intent (this, Cal5GestanteActivity::class.java)
+        buttonGestante.setOnClickListener {
+            val intent = Intent(this, Cal5GestanteActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonCadastrarPessoa.setOnClickListener {
+            val intent = Intent(this, CadastrarPessoaActivity::class.java)
             startActivity(intent)
         }
 

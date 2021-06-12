@@ -22,7 +22,7 @@
       app:layout_constraintTop_toTopOf="parent" />
 
   <Button
-      android:id="@+id/buttonCadastrarPessoa"
+      android:id="@+id/button_cadastrar_pessoa"
       android:layout_width="wrap_content"
       android:layout_height="30dp"
       android:layout_marginStart="16dp"
@@ -59,7 +59,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/buttonCadastrarPessoa" />
+      app:layout_constraintTop_toBottomOf="@+id/button_cadastrar_pessoa" />
 
   <Button
       android:id="@+id/button_adolescente"

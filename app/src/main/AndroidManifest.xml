@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CALvac">
-        <activity android:name=".Cal5GestanteActivity"
+        <activity
+            android:name=".CadastrarPessoaActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".Cal5GestanteActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Cal4IdosoActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

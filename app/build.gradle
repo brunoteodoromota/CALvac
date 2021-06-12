@@ -48,4 +48,5 @@ dependencies {
     //configuração do SDK do Firebase
     implementation 'com.google.firebase:firebase-analytics-ktx' //configuração do SDK do Firebase
     implementation 'com.google.firebase:firebase-database:19.2.0'
+    implementation 'io.github.vicmikhailau:MaskedEditText:4.0.5'
 }
