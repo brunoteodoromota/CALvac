@@ -26,7 +26,9 @@ import androidx.core.content.ContextCompat
 import com.vicmikhailau.maskededittext.MaskedEditText
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.Period
 import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class CadastrarPessoaActivity : AppCompatActivity() {
@@ -38,12 +40,14 @@ class CadastrarPessoaActivity : AppCompatActivity() {
     private var gravida: Boolean = false
     private lateinit var buttonSalvarDados: Button
 
+
     companion object {
         private const val READ_CALENDAR = 100
         private const val WRITE_CALENDAR = 101
         private const val LEITURA_E_ESCRITA_CALENDAR = 102
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrar_pessoa)
@@ -54,14 +58,14 @@ class CadastrarPessoaActivity : AppCompatActivity() {
         switchGestante = findViewById(R.id.switch_gestante)
         buttonSalvarDados = findViewById(R.id.button_salvar_dados)
 
+
+
         buttonVoltar.setOnClickListener {
             val intent = Intent(this, MenuPrincipalActivity::class.java)
             startActivity(intent)
-
         }
 
         campoData()
-
 
         maskedEditTextDataNasc.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
@@ -71,6 +75,8 @@ class CadastrarPessoaActivity : AppCompatActivity() {
 
         })
 
+
+
         switchGestante.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 gravida = true
@@ -79,6 +85,19 @@ class CadastrarPessoaActivity : AppCompatActivity() {
                 maskedEditTextDataNasc.setEnabled(true)
                 gravida = false
             }
+
+        }
+
+
+        buttonSalvarDados.setOnClickListener {
+            validaCampos(editTextNome.text.toString())
+            if (gravida == true) {
+                calendarioVacinacaoGestante(editTextNome.text.toString())
+            } else {
+                categorizarPessoa()
+            }
+            val intent = Intent(this, MenuPrincipalActivity::class.java)
+            startActivity(intent)
 
         }
 
@@ -105,19 +124,20 @@ class CadastrarPessoaActivity : AppCompatActivity() {
         datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis())
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun validaCampos(nome: String) {
+        val dataNascimento: String = maskedEditTextDataNasc.text.toString()
+        if (dataNascimento == "") {
+            Toast.makeText(this, "Digite uma data de nascimento", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
     fun checarPermissoes() {
-        if (ContextCompat.checkSelfPermission(
-                applicationContext,
-                Manifest.permission.WRITE_CALENDAR
-            )
-            == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
-                applicationContext,
-                Manifest.permission.READ_CALENDAR
-            )
-            == PackageManager.PERMISSION_GRANTED
-        ) {
-            Toast.makeText(this, "Escrita e Leitura de Calendário Permitidas", Toast.LENGTH_SHORT)
-                .show()
+        if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.WRITE_CALENDAR)
+            == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.READ_CALENDAR)
+            == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Escrita e Leitura de Calendário Permitidas", Toast.LENGTH_SHORT).show()
         } else {
             solicitarPermissoesCalendario()
         }
@@ -130,9 +150,54 @@ class CadastrarPessoaActivity : AppCompatActivity() {
             LEITURA_E_ESCRITA_CALENDAR
         )
 
-        Toast.makeText(this, "Escrita e Leitura de Calendário Permitidas", Toast.LENGTH_SHORT)
-            .show()
+        Toast.makeText(this, "Escrita e Leitura de Calendário Permitidas", Toast.LENGTH_SHORT).show()
     }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun categorizarPessoa() {
+
+        var nomeCompleto: String = editTextNome.text.toString()
+        var nomeSeparado: Array<String> = nomeCompleto.split(" ").toTypedArray()
+
+        var formatador: DateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        var dataNascFormatada: LocalDate =
+            LocalDate.parse(maskedEditTextDataNasc.text.toString(), formatador)
+        var dataAtual: LocalDate = LocalDate.now()
+        var periodo: Period = Period.between(dataNascFormatada, dataAtual)
+        var idade: String =
+            periodo.years.toString() + " ano(s), " + periodo.months.toString() + " mês(s) e " + periodo.days.toString() + " dia(s)"
+        Toast.makeText(this, idade, Toast.LENGTH_LONG).show()
+
+
+        if (periodo.years >= 0 && periodo.years <= 9) {
+            calendarioVacinacaoCrianca(dataNascFormatada, nomeSeparado[0])
+            calendarioVacinacaoAdolescente(dataNascFormatada, nomeSeparado[0])
+            calendarioVacinacaoAdulto(dataNascFormatada, nomeSeparado[0])
+            calendarioVacinacaoIdoso(dataNascFormatada, nomeSeparado[0])
+
+        } else {
+            if (periodo.years >= 10 && periodo.years <= 19) {
+                calendarioVacinacaoAdolescente(dataNascFormatada, nomeSeparado[0])
+                calendarioVacinacaoAdulto(dataNascFormatada, nomeSeparado[0])
+                calendarioVacinacaoIdoso(dataNascFormatada, nomeSeparado[0])
+
+            } else {
+                if (periodo.years >= 20 && periodo.years <= 59) {
+                    calendarioVacinacaoAdulto(dataNascFormatada, nomeSeparado[0])
+                    calendarioVacinacaoIdoso(dataNascFormatada, nomeSeparado[0])
+
+                } else {
+                    if (periodo.years >= 60) {
+                        calendarioVacinacaoIdoso(dataNascFormatada, nomeSeparado[0])
+                    }
+                }
+            }
+        }
+
+
+    }
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun calendarioVacinacaoCrianca(dataNascFormatada: LocalDate, nome: String) {
@@ -331,6 +396,7 @@ class CadastrarPessoaActivity : AppCompatActivity() {
             nome
         )
 
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -405,6 +471,37 @@ class CadastrarPessoaActivity : AppCompatActivity() {
             "Dose: Reforço (A cada 10 anos)",
             nome
         )
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun calendarioVacinacaoIdoso(dataNascFormatada: LocalDate, nome: String) {
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(60)),
+            "Hepatite B",
+            "Dose: 3 (Dependendo da situação vacinal)",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(60)),
+            "Febre Amarela",
+            "Dose: Uma e um reforço (Dependendo da situação vacinal)",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(60)),
+            "Dupla Adulto",
+            "Dose: Reforço (A cada 10 anos)",
+            nome
+        )
+
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -526,6 +623,7 @@ class CadastrarPessoaActivity : AppCompatActivity() {
         return null
     }
 
+
     fun setarLembrete(cr: ContentResolver, idEvento: Long, timeBefore: Int) {
         try {
             val values = ContentValues()
@@ -550,4 +648,7 @@ class CadastrarPessoaActivity : AppCompatActivity() {
 
 
 }
+
+
+
 
