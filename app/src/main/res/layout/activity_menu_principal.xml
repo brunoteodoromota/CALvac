@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cor_fundo"
+    tools:context=".MenuPrincipalActivity">
+
+  <TextView
+      android:id="@+id/textView9"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/cor_botao"
+      android:gravity="center"
+      android:text="Categorias"
+      android:textColor="@color/black"
+      android:textSize="40sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <Button
+      android:id="@+id/button_cadastrar_pessoa"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="8dp"
+      android:background="@color/cor_fundo_texto"
+      android:text="Cadastrar Pessoa"
+      android:textColor="@color/black"
+      android:textSize="10sp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+  <Button
+      android:id="@+id/button_sair"
+      android:layout_width="wrap_content"
+      android:layout_height="30dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="16dp"
+      android:background="@color/cor_fundo_texto"
+      android:text="Sair"
+      android:textColor="@color/black"
+      android:textSize="10sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+  <Button
+      android:id="@+id/button_crianca"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:backgroundTint="@color/red"
+      android:text="Criança"
+      android:textColor="@color/black"
+      android:textSize="30sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/button_cadastrar_pessoa" />
+
+  <Button
+      android:id="@+id/button_adolescente"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:backgroundTint="@color/red"
+      android:text="Adolescente"
+      android:textColor="@color/black"
+      android:textSize="30sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/button_crianca" />
+
+  <Button
+      android:id="@+id/button_adulto"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:backgroundTint="@color/red"
+      android:text="Adulto"
+      android:textColor="@color/black"
+      android:textSize="30sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/button_adolescente" />
+
+  <Button
+      android:id="@+id/button_idoso"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:backgroundTint="@color/red"
+      android:text="Idoso"
+      android:textColor="@color/black"
+      android:textSize="30sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/button_adulto" />
+
+  <Button
+      android:id="@+id/button_gestante"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:backgroundTint="@color/red"
+      android:text="Gestante"
+      android:textColor="@color/black"
+      android:textSize="30sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/button_idoso" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
