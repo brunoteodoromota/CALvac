@@ -565,7 +565,7 @@ class CadastrarPessoaActivity : AppCompatActivity() {
 
             val idEvento = uri!!.lastPathSegment!!.toLong()
 
-            setarLembrete(cr, idEvento, 0)
+            setarLembrete(cr, idEvento, 5)
             Toast.makeText(
                 baseContext,
                 "Lembrete da vacina: " + nomeVacina + " cadastrada com sucesso",
