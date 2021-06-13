@@ -11,6 +11,9 @@
     <color name="cor_fundo_texto">#208cef</color>
     <color name="red">#E30303</color>
     <color name="cor_botao">#c4c4c4</color>
+    <color name="dark_green">#13B807</color>
+    <color name="green">#05EA1C</color>
+    <color name="dark_grey">#717570</color>
 
 
 </resources>

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.calvac">
 
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CALvac">
-        <activity android:name=".Cal5GestanteActivity"
+        <activity
+            android:name=".CadastrarPessoaActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".Cal5GestanteActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Cal4IdosoActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

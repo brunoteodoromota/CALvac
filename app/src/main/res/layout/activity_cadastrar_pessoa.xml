@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cor_fundo"
+    tools:context=".CadastrarPessoaActivity">
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Nome"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_voltar_cadastro" />
+
+    <EditText
+        android:id="@+id/editText_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/cor_fundo_texto"
+        android:ems="10"
+        android:hint="Digite o nome completo"
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Data de nascimento"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/editText_nome"
+        app:layout_constraintTop_toBottomOf="@+id/editText_nome" />
+
+    <com.vicmikhailau.maskededittext.MaskedEditText
+        android:id="@+id/maskedEditText_data_nascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/cor_fundo_texto"
+        android:hint="Ex:17/05/1996"
+        android:padding="5dp"
+        android:paddingEnd="90dp"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:mask="##/##/####" />
+
+    <Switch
+        android:id="@+id/switch_gestante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Gestante"
+        android:textColor="@color/black"
+        android:thumbTint="@drawable/s_thumb"
+        android:trackTint="@drawable/s_track"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/maskedEditText_data_nascimento"
+        app:layout_constraintTop_toBottomOf="@+id/maskedEditText_data_nascimento" />
+
+    <Button
+        android:id="@+id/button_salvar_dados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/cor_botao"
+        android:text="Salvar dados"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_gestante" />
+
+    <Button
+        android:id="@+id/button_voltar_cadastro"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:background="@color/cor_fundo_texto"
+        android:text="Voltar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

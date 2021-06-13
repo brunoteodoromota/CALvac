@@ -22,7 +22,7 @@
       app:layout_constraintTop_toTopOf="parent" />
 
   <Button
-      android:id="@+id/buttonCadastrarPessoa"
+      android:id="@+id/button_cadastrar_pessoa"
       android:layout_width="wrap_content"
       android:layout_height="30dp"
       android:layout_marginStart="16dp"
@@ -59,7 +59,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/buttonCadastrarPessoa" />
+      app:layout_constraintTop_toBottomOf="@+id/button_cadastrar_pessoa" />
 
   <Button
       android:id="@+id/button_adolescente"
@@ -113,32 +113,4 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/button_idoso" />
 
-  <Button
-      android:id="@+id/buttonPostos"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="16dp"
-      android:backgroundTint="@color/red"
-      android:text="Postos"
-      android:textColor="@color/black"
-      android:textSize="30sp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/button_gestante" />
-
-  <Button
-      android:id="@+id/buttonNotificacoes"
-      android:layout_width="wrap_content"
-      android:layout_height="30dp"
-      android:layout_marginTop="8dp"
-      android:background="@color/cor_fundo_texto"
-      android:text="Notificações"
-      android:textColor="@color/black"
-      android:textSize="10sp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.498"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/buttonPostos"
-      app:layout_constraintVertical_bias="0.261" />
 </androidx.constraintlayout.widget.ConstraintLayout>
