@@ -135,6 +135,309 @@ class CadastrarPessoaActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
+    private fun calendarioVacinacaoCrianca(dataNascFormatada: LocalDate, nome: String) {
+        adicionarEvento(this, checarDataVacDataAtual(dataNascFormatada), "BCG", "Dose: Única", nome)
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada),
+            "Hepatite B",
+            "Dose: Primeira",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(2)),
+            "Pentavalente",
+            "Dose: Primeira",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(4)),
+            "Pentavalente",
+            "Dose: Segunda",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(6)),
+            "Pentavalente",
+            "Dose: Terceira",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(15)),
+            "Pentavalente",
+            "Dose: Primeiro Reforço",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(4)),
+            "Pentavalente",
+            "Dose: Segundo Reforço",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(2)),
+            "VIP/VOP",
+            "Dose: Primeira",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(4)),
+            "VIP/VOP",
+            "Dose: Segunda",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(6)),
+            "VIP/VOP",
+            "Dose: Terceira",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(15)),
+            "VIP/VOP",
+            "Dose: Primeiro Reforço",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(4)),
+            "VIP/VOP",
+            "Dose: Segundo Reforço",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(2)),
+            "Pneumocócica",
+            "Dose: Primeira",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(4)),
+            "Pneumocócica",
+            "Dose: Segunda",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(6)),
+            "Pneumocócica",
+            "Dose: Terceira",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(12)),
+            "Pneumocócica",
+            "Dose: Reforço",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(2)),
+            "Rotavírus Humano",
+            "Dose: Primeira",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(4)),
+            "Rotavírus Humano",
+            "Dose: Segunda",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(3)),
+            "Meningocócica C",
+            "Dose: Primeira",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(5)),
+            "Meningocócica C",
+            "Dose: Segunda",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(15)),
+            "Meningocócica C",
+            "Dose: Reforço",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(9)),
+            "Febre Amarela",
+            "Dose: Primeira",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(4)),
+            "Febre Amarela ",
+            "Dose: Segunda",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(12)),
+            "Hepatite A",
+            "Dose: Única",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(12)),
+            "Tríplice Viral",
+            "Dose: Primeira",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusMonths(15)),
+            "Tetra Viral",
+            "Dose: Única",
+            nome
+        )
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(9)),
+            "HPV",
+            "Dose: 3 (Dos 9 aos 11 anos)",
+            nome
+        )
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun calendarioVacinacaoAdolescente(dataNascFormatada: LocalDate, nome: String) {
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(10)),
+            "Hepatite B",
+            "Dose: 3 (Dependendo da situação vacinal)",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(10)),
+            "Febre Amarela",
+            "Dose: Uma e um reforço (Dependendo da situação vacinal)",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(10)),
+            "Tríplice Viral",
+            "Dose: 2",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(10)),
+            "HPV",
+            "Dose: 3 (Dos 9 aos 11)",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(10)),
+            "Duplo Adulto",
+            "Dose: Reforço (A cada 10 anos)",
+            nome
+        )
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun calendarioVacinacaoAdulto(dataNascFormatada: LocalDate, nome: String) {
+
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(20)),
+            "Hepatite B",
+            "Dose: 3 (Dependendo da situação vacinal)",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(20)),
+            "Febre Amarela",
+            "Dose: Uma e um reforço (Dependendo da situação vacinal)",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(20)),
+            "Tríplice Viral",
+            "Dose: 1 (até os 49)",
+            nome
+        )
+        adicionarEvento(
+            this,
+            checarDataVacDataAtual(dataNascFormatada.plusYears(20)),
+            "Duplo Adulto",
+            "Dose: Reforço (A cada 10 anos)",
+            nome
+        )
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun calendarioVacinacaoGestante(nome: String) {
+
+        var dataAtual: LocalDate = LocalDate.now()
+
+        adicionarEvento(this, dataAtual, "Hepatite B", "Dose: Uma", nome)
+
+        adicionarEvento(this, dataAtual, "Dupla Adulto", "Dose: Reforço", nome)
+
+        adicionarEvento(this, dataAtual, "dTpa", "Dose: 1 de 27ª a 36ª semana de gestação", nome)
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun checarDataVacDataAtual(dataVacina: LocalDate): LocalDate {
+        var dataVacinaCalc: LocalDate
+        var dataAtual: LocalDate = LocalDate.now()
+
+        var diferencaDatas: Int = dataVacina.compareTo(dataAtual)
+        if (diferencaDatas <= 0) {
+            dataVacinaCalc = dataAtual.plusDays(1)
+        } else {
+            dataVacinaCalc = dataVacina
+        }
+
+
+        return dataVacinaCalc
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
     fun adicionarEvento(
         context: Context,
         dataVacina: LocalDate,
